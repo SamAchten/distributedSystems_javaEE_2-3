@@ -16,6 +16,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
+*.properties
 
 ## Intermediate documents:
 *.dvi
@@ -217,3 +218,6 @@ hs_err_pid*
 /CarRental-client/nbproject/private/
 /CarRental-ejb/nbproject/private/
 /CarRental-lib/nbproject/private/
+*.properties
+
+CarRental-ejb/nbproject/project.properties
