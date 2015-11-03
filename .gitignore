@@ -8,7 +8,14 @@
 *.toc
 
 ## netbeans project file
-
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
 
 ## Intermediate documents:
 *.dvi
@@ -206,3 +213,7 @@ hs_err_pid*
 .DS_STORE
 
 /.project
+/CarRental/nbproject/private/
+/CarRental-client/nbproject/private/
+/CarRental-ejb/nbproject/private/
+/CarRental-lib/nbproject/private/
