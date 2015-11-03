@@ -8,14 +8,7 @@
 *.toc
 
 ## netbeans project file
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-.nb-gradle/
+
 
 ## Intermediate documents:
 *.dvi
