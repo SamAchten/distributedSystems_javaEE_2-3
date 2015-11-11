@@ -17,10 +17,10 @@ import javax.persistence.OneToMany;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
-    @ManyToOne
+    @ManyToOne(cascade={PERSIST})
     private CarType type;
     @OneToMany(cascade={REMOVE, PERSIST})
     private Set<Reservation> reservations;

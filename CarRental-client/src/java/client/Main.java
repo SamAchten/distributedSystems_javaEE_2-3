@@ -125,7 +125,7 @@ public class Main extends AbstractTestManagement<CarRentalSessionRemote, Manager
                     Float.parseFloat(csvReader.nextToken()),
                     Double.parseDouble(csvReader.nextToken()),
                     Boolean.parseBoolean(csvReader.nextToken()));
-            session.addCarType(type.getName(), type.getNbOfSeats(), type.getTrunkSpace(), type.getRentalPricePerDay(), true, type.getName());
+            //session.addCarType(type.getName(), type.getNbOfSeats(), type.getTrunkSpace(), type.getRentalPricePerDay(), true, companyName);
             //create N new cars with given type, where N is the 5th field
             for (int i = Integer.parseInt(csvReader.nextToken()); i > 0; i--) {
                 session.addCar(type, companyName);

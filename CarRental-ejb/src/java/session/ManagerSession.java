@@ -86,11 +86,9 @@ public class ManagerSession implements ManagerSessionRemote {
 
     @Override
     public void addCarType(String name, int nbOfSeats, float trunkSpace, double rentalPricePerDay, boolean smokingAllowed, String company) {
-        CarType ct = em.find(CarType.class, name);
-        if(ct == null) {
-            ct = new CarType(name, nbOfSeats, trunkSpace, rentalPricePerDay, smokingAllowed);
-            em.persist(ct);
-        }
+        CarType ct = new CarType(name, nbOfSeats, trunkSpace, rentalPricePerDay, smokingAllowed);
+        em.persist(ct);
+        
         CarRentalCompany crc = em.find(CarRentalCompany.class, company);
         crc.addCarType(ct);
     }
@@ -98,6 +96,7 @@ public class ManagerSession implements ManagerSessionRemote {
     @Override
     public void addCompany(String name) {
         CarRentalCompany crc = new CarRentalCompany(name);
+        System.out.println("Adding company: " + name);
         em.persist(crc);
     }
 }
