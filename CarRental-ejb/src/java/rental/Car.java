@@ -1,21 +1,39 @@
 package rental;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Car {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @ManyToOne
     private CarType type;
+    @OneToMany(cascade={REMOVE, PERSIST})
     private Set<Reservation> reservations;
 
     /***************
      * CONSTRUCTOR *
      ***************/
     
-    public Car(int uid, CarType type) {
-    	this.id = uid;
+    public Car() {
+        
+    }
+    
+    public Car(CarType type) {
         this.type = type;
         this.reservations = new HashSet<Reservation>();
     }

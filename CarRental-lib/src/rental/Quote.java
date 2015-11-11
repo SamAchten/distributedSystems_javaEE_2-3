@@ -24,6 +24,10 @@ public class Quote implements Serializable {
         this.carType = carType;
         this.rentalPrice = rentalPrice;
     }
+    
+    public Quote() {
+        
+    }
 
     public Date getStartDate() {
         return startDate;

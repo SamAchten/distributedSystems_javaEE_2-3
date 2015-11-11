@@ -1,5 +1,8 @@
 package rental;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -8,13 +11,25 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
+@Entity
 public class CarRentalCompany {
 
     private static Logger logger = Logger.getLogger(CarRentalCompany.class.getName());
+    @Id
     private String name;
+    @OneToMany(cascade={REMOVE, PERSIST})
     private List<Car> cars;
+    @ManyToMany
     private Set<CarType> carTypes = new HashSet<CarType>();
+
+    public CarRentalCompany() {
+        
+    }
 
     /***************
      * CONSTRUCTOR *
@@ -27,6 +42,10 @@ public class CarRentalCompany {
         for (Car car : cars) {
             carTypes.add(car.getType());
         }
+    }
+    
+    public CarRentalCompany(String name) {
+        setName(name);
     }
 
     /********
@@ -47,6 +66,10 @@ public class CarRentalCompany {
     
     public Collection<CarType> getAllTypes() {
         return carTypes;
+    }
+    
+    public void addCarType(CarType type) {
+        carTypes.add(type);
     }
 
     public CarType getType(String carTypeName) {
@@ -83,6 +106,10 @@ public class CarRentalCompany {
             }
         }
         throw new IllegalArgumentException("<" + name + "> No car with uid " + uid);
+    }
+    
+    public void addCar(Car car) {
+        cars.add(car);
     }
 
     public Set<Car> getCars(CarType type) {

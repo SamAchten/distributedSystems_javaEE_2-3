@@ -72,7 +72,7 @@ public class RentalStore {
                     Boolean.parseBoolean(csvReader.nextToken()));
             //create N new cars with given type, where N is the 5th field
             for (int i = Integer.parseInt(csvReader.nextToken()); i > 0; i--) {
-                cars.add(new Car(nextuid++, type));
+                //cars.add(new Car(nextuid++, type));
             }
         }
 

@@ -1,7 +1,12 @@
 package rental;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Reservation extends Quote {
 
+    @Id
     private int carId;
     
     /***************
@@ -12,6 +17,10 @@ public class Reservation extends Quote {
     	super(quote.getCarRenter(), quote.getStartDate(), quote.getEndDate(), 
     		quote.getRentalCompany(), quote.getCarType(), quote.getRentalPrice());
         this.carId = carId;
+    }
+    
+    public Reservation() {
+        
     }
     
     /******
